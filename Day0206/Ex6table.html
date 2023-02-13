@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Itim&family=Nanum+Pen+Script&family=Single+Day&family=Solitreo&family=Sunflower:wght@700&display=swap"
+    rel="stylesheet">
+<!-- font-family: 'Itim', cursive;
+    font-family: 'Nanum Pen Script', cursive;
+    font-family: 'Single Day', cursive;
+    font-family: 'Solitreo', cursive;
+    font-family: 'Sunflower', sans-serif; -->
+    <title>table</title>
+    <style>
+        body * {
+            font-size: 1.5rem;
+            font-family: 'solitreo';
+        }
+    </style>
+</head>
+<body>
+    <table border="1px" style="border-collapse: collapse;">
+        <caption><b>[표1]</b></caption>
+        <tr height="50" bgcolor="orange">
+            <!-- th는 자동으로 가운데 정렬 및 굵게 속성이 적용된다 -->
+            <th width="100">이름</th>
+            <th width="170">핸드폰</th>
+            <th width="200">주소</th>
+        </tr>
+        <tr height="100" align="center">
+            <td bgcolor="pink">강호동</td>
+            <td bgcolor="#aaccdd">010-9785-7899</td>
+            <td style="background-color: grey; color: yellow;">서울시 강남구</td>
+        </tr>
+        <tr height="100">
+            <td valign="top">유재석</td>
+            <td valign="bottom" align="right">010-6525-8139</td>
+            <td valign="top" align="right" bgcolor="blue">서울시 영등포구</td>
+        </tr>
+        <!--4번쨰 줄은 3칸을 합쳐서 이미지 넣기  -->
+        <tr height="150">
+            <td colspan="3" align="center" bgcolor="pink">
+                <img src="../image/mainImage/K-036.png" alt="사진" width="200">
+            </td>
+        </tr>
+
+    </table>
+</body>
+</html>

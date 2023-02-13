@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Itim&family=Nanum+Pen+Script&family=Single+Day&family=Solitreo&family=Sunflower:wght@700&display=swap"
+    rel="stylesheet">
+    <!-- font-family: 'Itim', cursive;
+    font-family: 'Nanum Pen Script', cursive;
+    font-family: 'Single Day', cursive;
+    font-family: 'Solitreo', cursive;
+    font-family: 'Sunflower', sans-serif; -->
+    <style>
+        body, body *{
+            font-size: 1.5rem;
+            font-family: 'sunflower';
+        }
+
+        #star{
+            width: 300px;
+            height: 400px;
+            border: 10px inset gold;
+        }
+
+        figure{
+            text-align: center;
+        }
+
+        .buttons{
+            text-align: center;
+        }
+
+        .buttons button{
+            width: 100px;
+            height: 100px;
+            background-color: cyan;
+            color: yellow;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        .radius50{
+            border-radius: 50px;
+        }
+
+        .radius500{
+            border-radius: 5000px;
+        }
+
+    </style>
+</head>
+<body>
+    <figure>
+        <img src="../image/moviestar/13.jpg" alt="" id="star" title="박신혜">
+        <figcaption>
+            <b id="irum">박신혜</b>
+        </figcaption>
+    </figure>
+    <div class="buttons">
+        <button class="button" id="btn_1">수지</button>
+        <button class="button" id="btn_2">박보영</button>
+        <button class="button" id="btn_3">유아인</button>
+        <button class="button" id="btn_4">한예슬</button>
+    </div>
+    <script>
+        var photo = document.getElementById("star");
+        var starname = document.getElementById("irum");
+        document.getElementById("btn_1").onclick = function(){
+            photo.setAttribute("src", "../image/moviestar/19.jpg");
+            // starname.innerText ="수지";
+            //출력할 이름을 prompt로 입력받아서 출력해보자
+            photo.setAttribute("title", "수지?");
+            var myname = prompt("출력할 이름을 입력해 주세요.","수지");
+            if(myname != null){
+                starname.innerHTML = `<b style = 'color: red'>${myname}</b>`;
+            }else{
+                photo.setAttribute("src", "../image/moviestar/13.jpg");
+                starname.innerText ="박신혜";
+                photo.setAttribute("title", "신나");
+            }
+        }
+        document.getElementById("btn_2").onclick = function(){
+            photo.setAttribute("src", "../image/moviestar/12.jpg");
+            starname.innerText ="박보영";
+            photo.setAttribute("title", "앞이안보영");
+
+            //사진의 클래스를 redline으로 변경
+            photo.setAttribute("class", "radius500");
+        }
+        document.getElementById("btn_3").onclick = function(){
+            photo.setAttribute("src", "../image/moviestar/20.jpg");
+            starname.innerText ="유아인";
+            photo.setAttribute("title", "어이가없네");
+
+            photo.setAttribute("class", "radius50");
+        }
+        document.getElementById("btn_4").onclick = function(){
+            photo.setAttribute("src", "../image/moviestar/6.jpg");
+            starname.innerText ="한예슬";
+            photo.setAttribute("title", "슬예한");
+
+            //사진의 클래스 속성 없애기
+            photo.setAttribute("class", "");
+        }
+    </script>
+
+</body>
+</html>

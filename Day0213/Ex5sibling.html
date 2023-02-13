@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="one">
+        <img src="../image/animal/C1.png" alt="" width="130">
+        <div class="two">
+            <h4>Have a Nice Day</h4>
+            <div class="three">
+                <img src="../image/food/11.jpg" width="100" alt="">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //고양이 사진에 마우스를 올리면 아래 글자의 속성을 변경 (크기:30px, 배경색:lightgray, 글자색:blue)
+        //그리고 아래 빙수사진의 border를 설정한다
+        
+        document.querySelector("div.one>img").onmouseover = function(){
+            
+            var cattxt = this.nextElementSibling.innerText;
+
+            document.querySelector(".two>h4").innerHTML = "<h4 style='background-color: lightgray; color: blue; font-size: 30px;'>" + cattxt + "</h4>";
+
+            this.nextElementSibling.querySelector("div.three>img").style.border = "5px solid yellow";
+        }
+
+        //마우스를 벗어나면 다시 추가한 스타일을 제거한다
+
+        document.querySelector("div.one>img").onmouseout = function(){
+            
+            var cattxt = this.nextElementSibling.innerText;
+
+            document.querySelector(".two>h4").innerHTML = "<h4 style='background-color: rgba(0, 0, 0, 0); color: black; font-size: 16px;'>" + cattxt + "</h4>";
+
+            this.nextElementSibling.querySelector("div.three>img").style.border = "none";
+        }
+
+    </script>
+</body>
+</html>

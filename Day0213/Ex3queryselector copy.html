@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>copy</title>
+</head>
+
+<body>
+    <table border=" 1px solid gray" style="border-collapse: collapse; width: 500px;">
+        <caption><b>th.star에 이벤트</b></caption>
+        <tr>
+            <th width="100" class="food"><img src="../image/food/3.jpg" alt="" width="80">
+                <br>
+                <b>냠냠</b>
+            </th>
+            <td align="center" rowspan="5"><img src="../image/food/3.jpg" alt="" width="300" class="bigphoto">
+                <br>
+                <h2>냠냠</h2>
+            </td>
+        <tr>
+            <th width="100" class="food"><img src="../image/food/4.jpg" alt="" width="80">
+                <br>
+                <b>짭짭</b>
+            </th>
+        </tr>
+        <tr>
+            <th width="100" class="food"><img src="../image/food/5.jpg" alt="" width="80">
+                <br>
+                <b>와구와구</b>
+            </th>
+        </tr>
+        <tr>
+            <th width="100" class="food"><img src="../image/food/10.jpg" alt="" width="80">
+                <br>
+                <b>쩝쩝</b>
+            </th>
+        </tr>
+        </tr>
+    </table>
+    <script>
+        var imagrr = document.querySelectorAll("th.food");
+
+        for(var foods of imagrr){
+            foods.onmouseover = function(){
+                var foodsSrc = this.querySelector("th.food>img").getAttribute("src");
+
+                //큰사진의 src값에 위에 사진을 넣어준다
+                document.querySelector(".bigphoto").setAttribute("src", foodsSrc);
+
+                //이벤트그 발생한 th에서 하위태그를 찾는다
+                var foodName = this.querySelector("b").innerText;
+                //위에서 얻은 음식 이름을 h2태그 안에 글자를  =넣는다
+                document.querySelector("td>h2").innerText = foodName;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table</title>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Itim&family=Nanum+Pen+Script&family=Single+Day&family=Solitreo&family=Sunflower:wght@700&display=swap"
+    rel="stylesheet">
+<!-- font-family: 'Itim', cursive;
+    font-family: 'Nanum Pen Script', cursive;
+    font-family: 'Single Day', cursive;
+    font-family: 'Solitreo', cursive;
+    font-family: 'Sunflower', sans-serif; -->
+    
+    <style>
+        body *{
+            font-size: 1rem;
+            font-family: 'sunflower';
+        }
+
+        table.sawon_table{
+            width: 500px;
+            border: 5px inset grey;
+            border-collapse: collapse;
+        }
+
+        table.sawon_table>tbody>tr>td>img{
+            width: 80px;
+            height: 80px;
+            border-radius: 100px;            
+        }
+        table.sawon_table>thead>tr>th{
+            border-bottom: 5px double gray;
+            border-right: 1px dotted gray;
+            background-color: aqua;
+        }
+        table.sawon_table>tbody>tr>td{
+            border: 1px solid gray;
+        }
+        
+        
+        .td_img{            
+            text-align: center;
+        }
+
+        .se{
+            color: black;
+        }
+        
+        .EX1{
+            border: 1px solid gray
+        }
+
+        .EX1 td{
+            border: 1px solid gray;
+            width: 150px;
+            height: 80px;
+        }
+
+        .pink{
+            background-color: pink;
+        }
+        .pink:hover{
+            background-color: skyblue;
+            color: white;
+        }
+
+        .blue{
+            background-color: skyblue;
+        }
+        .blue:hover{
+            background-color: pink;
+            color: white;
+        }
+
+        .black{
+            background-color: white;
+        }
+        .black:hover{
+            background-color: black;
+            color: white;
+        }
+
+        #fi{
+            vertical-align: top;
+        }
+
+        #fo{
+            vertical-align: bottom;
+        }
+        
+        #se .hoverclass{
+            background-color: white;
+            color:black
+        }
+
+        .hoverclass:hover{
+            background-color: black;
+            color: white;
+        }
+
+
+    </style>
+</head>
+<body>
+    <table class="sawon_table">
+        <caption>사내직원 현황</caption>
+        <!-- 제목 부분 -->
+        <thead>
+            <tr>
+                <th width="70">성별</th>
+                <th>이름</th>
+                <th>전공</th>
+                <th>사진</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="hoverid">
+                <td rowspan="2" bgcolor="#ffffcc" id="se">여자</td>
+                <td class="hoverclass">박신혜</td>
+                <td class="hoverclass">음악</td>
+                <td class="td_img hoverclass">
+                    <img src="../image/moviestar/13.jpg" alt="박산혜">
+                </td>
+            </tr>
+            <tr id="hoverid">
+                <td class="hoverclass">박보영</td>
+                <td class="hoverclass">컴퓨터공학</td>
+                <td class="td_img hoverclass">
+                    <img src="../image/moviestar/12.jpg" alt="박보영">
+                </td>
+            </tr>
+        </tbody>
+
+        <tbody>
+            <tr>
+                <td rowspan="3" bgcolor="#ffffcc" class="se">남자</td>
+                <td id="hover">누구야</td>
+                <td id="hover">몰라</td>
+                <td class="td_img" id="hover">
+                    <img src="../image/moviestar/1.jpg" alt="">
+                </td>
+            </tr>
+
+            <tr id="hover">
+                <td>누구야</td>
+                <td>몰라</td>
+                <td class="td_img">
+                    <img src="../image/moviestar/2.jpg" alt="">
+                </td>
+            </tr>
+
+            <tr id="hover">
+                <td>누구야</td>
+                <td>몰라</td>
+                <td class="td_img">
+                    <img src="../image/moviestar/3.jpg" alt="">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br><br><br><br><br>
+
+    <table class="EX1">
+        <tbody>
+            <tr>
+                <td rowspan="3" class="blue" id="fi">일</td>
+                <td colspan="3" class="pink">이</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="pink">삼</td>
+                <td rowspan="3" class="blue" id="fo">사</td>
+            </tr>
+            <tr>
+                <td class="black">오</td>
+                <td class="black">육</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="pink">칠</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    
+</body>
+</html>

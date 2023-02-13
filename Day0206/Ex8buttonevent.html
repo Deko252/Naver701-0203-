@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript</title>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Itim&family=Nanum+Pen+Script&family=Single+Day&family=Solitreo&family=Sunflower:wght@700&display=swap"
+    rel="stylesheet">
+<!-- font-family: 'Itim', cursive;
+    font-family: 'Nanum Pen Script', cursive;
+    font-family: 'Single Day', cursive;
+    font-family: 'Solitreo', cursive;
+    font-family: 'Sunflower', sans-serif; -->
+    <style>
+        body *{
+            font-size: 1rem;
+            font-family: 'sunflower';
+        }
+    </style>
+    
+    <script language="javascript">
+        function test1(){
+            alert("오늘도 행복한 하루");
+            //이벤트안에서 document.write로 출력시 다 지워지고 새로 출력된다.
+            //document.write("버튼1을 클릭했어요")
+
+            //innerHTML html태그 적용 후 출력  , innerText는 문자 그대로 출력
+            document.getElementById("result1").innerHTML="<b>버튼 1 클릭</b>";
+        }
+
+        function test2(){
+            var name = prompt("너의 이름은 뭐니?", "여기에 적어");
+            if(name != null){
+                document.getElementById("result2").innerHTML= `반가워 ${name}`;
+            }else{
+                document.getElementById("result2").innerHTML= "이름을 입력해";
+            }
+        }
+
+        function test3(){
+            var con = confirm("정말?");
+            if(con == true){
+                document.getElementById("result3").innerHTML="왜?";   
+            }else{
+                document.getElementById("result3").innerHTML="그래";
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <div class="posa">
+        <input type="button" value="alert이란?" onclick="alert('버튼1을 클릭했어요')">
+        <br><br><br>
+        <button type="button" onclick="prompt('이름이 뭐니','몰라')">prompt란?</button>
+        <br><br><br>
+        <button type="button" onclick="confirm('확인')">conform란?</button>
+    </div>
+    <hr>
+    <button type="button" onclick="test1()">메세지</button>
+    <h3 id="result1"></h3>
+    <button type="button" onclick="test2()">이름 입력</button>
+    <h2 id="result2"></h2>
+    <button type="button" onclick="test3()">확인</button>
+    <h2 id="result3"></h2>
+</body>
+</html>

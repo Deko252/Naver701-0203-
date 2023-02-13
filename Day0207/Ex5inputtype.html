@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link
+    href="https://fonts.googleapis.com/css2?family=Itim&family=Nanum+Pen+Script&family=Single+Day&family=Solitreo&family=Sunflower:wght@700&display=swap"
+    rel="stylesheet">
+    <!-- font-family: 'Itim', cursive;
+    font-family: 'Nanum Pen Script', cursive;
+    font-family: 'Single Day', cursive;
+    font-family: 'Solitreo', cursive;
+    font-family: 'Sunflower', sans-serif; -->
+    <style>
+        body, body *{
+            font-size: 1.5rem;
+            font-family: 'sunflower';
+        }
+    </style>
+</head>
+<body>
+
+    <div style="margin: 50px;">
+        숫자1
+        <input type="text" id="su1" style="width: 100px;">
+        &nbsp;&nbsp;
+        숫자2
+        <input type="text" id="su2" style="width: 100px;">
+        &nbsp;&nbsp;
+        <select name="" id="sel">
+            <option selected disabled hidden>연산자 선택</option>
+            <option value="+">더하기</option>
+            <option value="-">빼기</option>
+            <option value="*">곱하기</option>
+            <option value="/">나누기</option>
+        </select>
+
+        <br><br>
+
+        <h1 id="result" style="text-align: center;"></h1>
+        <br>
+        <h1 id="result2" style="text-align: center;"></h1>
+    </div>
+    
+    <script>
+        var su1 = document.getElementById("su1");
+        var su2 = document.getElementById("su2");
+        var sel = document.getElementById("sel");
+
+        //text 안에서 클릭시 발생하는 이벤트
+        su1.onfocus=function(){
+            this.style.backgroundColor="lightyellow";
+        }
+
+        //text에서 포커스가 벗어날때 발생하는 이벤트
+        su1.onblur=function(){
+            this.style.backgroundColor="white";
+
+             //입력한 값이 숫자가 아닐경우 경고표시후 값지우고 문자면 true포커스
+            console.log(isNaN(this.value));//숫자일 경우 false, 문자면 true
+
+            if(isNaN(this.value)){
+                alert("숫자로만 입력해주세요.");
+                this.value="";
+                this.focus();
+            }
+        }
+
+        su2.onfocus=function(e){
+            e.target.style.backgroundColor="lightyellow";
+        }
+
+        //text에서 포커스가 벗어날때 발생하는 이벤트
+        su2.onblur=function(e){
+            e.target.style.backgroundColor="white";
+
+            //입력한 값이 숫자가 아닐경우 경고표시후 값지우고 문자면 true포커스
+            console.log(isNaN(this.value));//숫자일 경우 false, 문자면 true
+
+            if(isNaN(this.value)){
+                alert("숫자로만 입력해주세요.");
+                this.value="";
+                this.focus();
+            }
+        }
+
+        //select 이벤트
+        document.getElementById("sel").onchange = function(){
+                //alert(this.value);
+
+                //더하기일 경우에만 문자열 형태로더한다
+                //제대로 계산도되도록 하려면 숫자로 바꾼후 걔산해야한다
+                //parseint(정수로 뱐환) 또는 parsefloat(실수로 변환) 또는 number(수치로 변환) 를 사용해야 한다.
+                var r;
+                switch(this.value){
+                    case '+':
+                        //r = parseInt(su1.value) + parseInt(su2.value);
+                        r = Number(su1.value) + Number(su2.value);
+                        break;
+                }
+                switch(this.value){
+                    case '-':
+                        r = parseInt(su1.value) - parseInt(su2.value);
+                        break;
+                }
+                switch(this.value){
+                    case '*':
+                        r = parseInt(su1.value) * parseInt(su2.value);
+                        break;
+                }
+                switch(this.value){
+                    case '/':
+                        r = parseInt(su1.value) / parseInt(su2.value);
+                        break;
+                }
+                document.getElementById("result").innerHTML = r;
+
+                //switch나 if로 계산없이 바로 계산 결과 출력하기 -eval이용
+                //eval("수식") : 자동으로 계산해서 반환
+                var r2 = su1.value + this.value + su2.value;
+                console.log(r2);
+
+                document.getElementById("result2").innerText = eval(r2);// 수식r2를 계산해서 텍스트 넣기
+        }
+
+    </script>
+
+</body>
+</html>

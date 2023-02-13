@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 바꾸기</title>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Nanum+Pen+Script&family=Single+Day&family=Solitreo&family=Sunflower:wght@700&display=swap" rel="stylesheet">
+    <!-- font-family: 'Itim', cursive;
+    font-family: 'Nanum Pen Script', cursive;
+    font-family: 'Single Day', cursive;
+    font-family: 'Solitreo', cursive;
+    font-family: 'Sunflower', sans-serif; -->
+    <style>
+        #font{
+            margin: 50px 50px;
+            font-size: 24px;
+            font-family: 'Nanum Pen Script';
+            color: #000fff;
+        }
+    </style>
+
+    <script>
+        //head안에서 이벤트 함수를 만들경우 반드시 onload 함수 안에서 구현한다.
+        window.onload=function(){
+            var font = document.getElementById("font");
+            var selfont = document.getElementById("selfont");
+            var selsize = document.getElementById("selsize");
+            var selcolor = document.getElementById("selcolor");
+            var chkfill = document.getElementById("chkfill");
+            var chkborder = document.getElementById("chkborder");
+            
+            //글꼴 변경 이벤트
+            selfont.onchange = function(){
+                font.style.fontFamily = selfont.value;
+            }
+
+            //글꼴크기 변경 이벤트
+            selsize.onchange = function(){
+                font.style.fontSize = selsize.value;
+            }
+
+            //글자 색깔 변경 이벤트
+            selcolor.onchange = function(){
+                font.style.color = selcolor.value;
+            }
+
+            //체크박스 이벤트
+            chkfill.onclick = function(){
+                console.log("value: " + chkfill.value);
+                console.log("check: " + chkfill.checked);
+
+                if(chkfill.checked){
+                    font.style.backgroundColor = "skyblue";
+                }else{
+                    font.style.backgroundColor = "white"
+                }
+            }
+
+            chkborder.onclick = function(){
+                if(chkborder.checked){
+                    font.style.border = chkborder.value;
+                }else{
+                    font.style.border = "none";
+                }
+
+            }
+
+        }
+    </script>
+
+</head>
+<body>
+    <div style="margin: 10px 50px;">
+        <b>글꼴 변경: </b>
+        <select name="" id="selfont">
+            <option value="Single Day">Single Day</option>
+            <option value="Sunflower">Sunflower</option>
+            <option value="Itim">Itim</option>
+            <option value="Solitreo">Solitreo</option>
+            <option value="Nanum Pen Script" selected>Nanum Pen Script</option>
+        </select>
+        <br><br>
+        <b>글자크기 변경: </b>
+        <select name="" id="selsize">
+            <option value="10px">10</option>
+            <option value="15px">15</option>
+            <option value="20px">20</option>
+            <option value="24px" selected>기본값 24</option>
+            <option value="30px">30</option>
+            <option value="50px">50</option>
+            <option value="100px">100</option>
+        </select>
+        <br><br>
+        <b>글자색 선택: </b>
+        <select name="" id="selcolor">
+            <option value="orange">오렌지색</option>
+            <option value="rgb(122,100,200)">보라색</option>
+            <option value="rgba(122,100,200,0.5)">보라색(반투명)</option>
+            <option value="tomato">토마토</option>
+            <option value="#3cb371">초록색</option>
+            <option value="#000fff" selected>진한 파란색</option>
+            <option value="pink">핑크색</option>
+        </select>
+        <br><br>
+        <b>채우기 색: </b>
+        <!-- label 태그 안에 checkbox나 radio를 만들경우 글자를 눌러도 체크가 된다.-->
+        <label><input type="checkbox" id="chkfill"> 채우기</label>
+        <br><br>
+        <b>테두리 선: </b>
+        <label for=""><input type="checkbox" id="chkborder" value="10px groove cyan">테두리 선</label>
+    </div>
+    <div id="font">
+        Happy? <br>
+        행복?
+    </div>
+</body>
+</html>

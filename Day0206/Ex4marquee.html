@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Itim&family=Nanum+Pen+Script&family=Single+Day&family=Solitreo&family=Sunflower:wght@700&display=swap"
+    rel="stylesheet">
+<!-- font-family: 'Itim', cursive;
+    font-family: 'Nanum Pen Script', cursive;
+    font-family: 'Single Day', cursive;
+    font-family: 'Solitreo', cursive;
+    font-family: 'Sunflower', sans-serif; -->
+    <title>marquee</title>
+    <style>
+        body * {
+            font-size: 2rem;
+            font-family: 'Sunflower';
+        }
+
+        #m1>img{
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h3>marquee 기본값</h3>
+    <marquee>
+        <b>Have a nic day</b>
+    </marquee>
+
+    <h3>marquee 기본값 -right로 변경</h3>
+    <marquee direction="right">
+        <b style="color: red;">Have a nic day</b>
+    </marquee>
+
+    <h3>marquee 기본값 - right,slide(1번만 이동) 로 변경</h3>
+    <marquee direction="right" behavior="slide">
+        <b style="color: blue";> Have a nic day</b>
+    </marquee>
+    
+    <h3>marquee 기본값 - right,alternate(왔다갔다) 로 변경</h3>
+    <marquee direction="right" behavior="alternate" scrollamount="30">
+        <b style="color: green; background-color: aqua;"> Have a nic day</b>
+    </marquee>
+
+    <h2>사진에 적용해보자</h2>
+    <marquee behavior="" direction="right" id="m1" >
+        <img src="../image/moviestar/13.jpg" alt="배우">
+        <img src="../image/moviestar/1.jpg" alt="배우">
+        <img src="../image/moviestar/10.jpg" alt="배우">
+        <img src="../image/moviestar/3.jpg" alt="배우">
+        <img src="../image/moviestar/15.jpg" alt="배우">
+    </marquee>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>photo</title>
+    <style>
+        .photo{
+            width: 150px;
+            height: 100px;
+            border: 1px solid gray;
+            border-radius: 100px;
+        }
+
+        .box{
+            width: 150px;
+            text-align: center;
+        }
+
+        #sum{
+            font-size: 60px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        //각종 데이터를 다양한 방법으로 배열에 담아보자
+        var arrphoto = new Array();
+        arrphoto.push("../image/food/10.jpg");
+        arrphoto.push("../image/food/1.jpg");
+        arrphoto.push("../image/shop/2.jpg");
+        arrphoto.push("../image/shop/27.jpg");
+        arrphoto.push("../image/animal/C8.png");
+
+        var arrtilte = ["햄마요덮밥", "샌드위치", "원피스", "투피스", "인형"];
+
+        var arrprice = new Array();
+        arrprice[0] = 11000;
+        arrprice[1] = 9000;
+        arrprice[2] = 35000;
+        arrprice[3] = 42000;
+        arrprice[4] = 19000;
+
+
+        //for (var i = 0; i < arrphoto.length; i++) {     
+           // document.write("<b class = 'box'>" + (i + 1) + "</b>");
+            //document.write("<b class = 'box'>" + arrtilte[i] + "</b>");
+            //document.write("<img src='" + arrphoto[i] + "'  class = 'photo'>");
+            //document.write("<b class = 'box'>" + arrprice[i] + "</b><br>");            
+            //}
+    </script>
+    <table border="1" style="border-collapse: collapse;">
+        <tr>
+            <th>번호</th>
+            <th>상품명</th>
+            <th>사진</th>
+            <th>가격</th>
+        </tr>
+        <script>
+            var s = ""; 
+            var sum = 0;
+            for(var idx in arrtilte){
+                sum +=  arrprice[idx];
+                s += "<tr>";
+                s += "<td class = 'box'>" + (Number(idx) + 1) + "</td>";
+                s += "<td class = 'box'>" + arrtilte[idx] + "</td>";    
+                s += "<td><img src='" + arrphoto[idx] + "'  class = 'photo'></td>";
+                s += "<td class = 'box'>" + arrprice[idx] + "</td>";
+                s += "</tr>";
+            }
+            document.write(s);
+            </script>
+        
+        
+    </table>
+    <script>
+        //var sum = 0;
+        // for (var i = 0; i < arrprice.length; i++) {
+        //     sum += arrprice[i]; 
+        // }
+        document.write("<div id = 'sum'> 총 " + sum + "원 </div>");
+    </script>
+
+
+</body>
+</html>

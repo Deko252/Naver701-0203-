@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열문제</title>
+    <style>
+        .photo{
+            width: 200px;
+            height: 300px;
+            border: 1px solid gray;
+        }
+        figure>figcaption {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>moviestar 소속 배우들</h2>
+    <script>
+        //moviestar 사진과 함께 출력할 이름을 배열에 넣어서 사진과 이름 출력하기'
+        var starname = new Array();
+        starname[1] = "여진구";
+        starname[2] = "김우빈";
+        starname[3] = "김영광";
+        starname[4] = "박서준";
+        starname[5] = "최지우";
+        starname[6] = "한예슬";
+        starname[7] = "황정음";
+        starname[8] = "전지현";
+        starname[9] = "강동원";
+        starname[10] = "김태희";
+    </script>
+    
+    <table border="1" style="border-collapse: collapse;">
+        <tr>
+        <script>
+             for(var idx in starname){
+                var s = "";
+                s += "<td><figure><img src='../image/moviestar/" + idx + ".jpg' class = 'photo'>";
+                s += "<figcaption>";    
+                s += "<b>" + starname[idx] + "</b>";
+                s += "</figcaption></figure></td>";
+                
+                if (idx%5 == 0) {
+                    s += "</tr><tr>";
+                }
+                document.write(s);
+            }
+        </script>
+        </tr>
+    </table>
+    <table border="1" style="border-collapse: collapse;">
+        <tr>
+        <script>
+            for (var i = 1; i < starname.length ; i++) {
+                var s = "";
+                s += `
+                    <td ailgn = center><figure>
+                        <img src = "../image/moviestar/${i}.jpg" class = "photo">
+                        <figcaption>
+                        <b>${starname[i]}</b></figcaption></figure>
+                    <td>`;
+                    if (i%5 == 0) {
+                    s += "</tr><tr>";
+                    }
+                      document.write(s);
+                    }          
+
+        </script>
+        </tr>
+    </table>
+</body>
+</html>

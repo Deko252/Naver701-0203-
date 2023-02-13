@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one{
+            font-size: 20px;
+            color: blue;
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+    <div class = "one">Class One - 1</div>
+    <div class = "one">Class One - 1</div>
+    <div class = "one">Class One - 1</div>
+    <hr>
+    <div class = "apple">
+        <div class = "banana">banana</div>
+        <div class = "kiwi">kiwi</div>
+    </div>
+    <h3>h3-1</h3>
+    <h3>h3-2</h3>
+    <h3>h3-3</h3>
+    <h3>h3-4</h3>
+
+    <script>
+        //복수개의 엘리면트를 반환 - class 명이 one 인 모든 요소값을 반환
+        var a1 = document.getElementsByClassName("one");
+        document.write("class one은 총 " + a1.length + "개 입니다<br>");
+
+        //a1의 첫번째 요소의 style값중 font-size를 50px로 변경
+        a1[0].style.fontSize="50px";
+
+        //a2의 2번째 요소의 color값을 "Red" 로변경
+        a1[1].style.color="red";
+
+        //a1전체에 일괄적으로 글꼴변경
+        for(var a of a1){
+            a.style.fontFamily = "궁서체";
+        }
+
+        //a3의 3번째 요소의 border를 "3px solid gray" 로 변경
+        a1[2].style.border="3px solid gray";
+
+        //복수개의 엘리먼트를 반환 - 태그명이 div인 모든 요소값을 반환
+        var a2 = document.getElementsByTagName("div");
+        document.write("div 의 갯수는 총 " + a2.length + "개 입니다<br>");
+
+        //a2 배열전체에 일괄적으로 배경색 추가하기
+        for(var idx in a2){
+            a2[idx].style.backgroundColor="#ffc";
+        }
+
+        //클래스명이 one인 엘리먼트의 첫번째 값 1개만 반환 (배열x)
+        var a3 = document.querySelector(".one");
+        document.write("class one 은 총 " + a3.length + "개 입니다.<br>");
+        
+
+        //클래스명이 one인 엘리먼트이 모든값을 배열형태로 반환
+        var a4 = document.querySelectorAll(".one");
+        document.write("class one 은 총 " + a4.length + "개 입니다.<br>");
+
+        //class apple 바로아래의 class명이 banana인 요소값
+        var a5 = document.querySelector("apple >. banana");
+
+        //class apple 바로 아래의 class명아 kiwi인 요소값
+        var a6 = document.querySelector("apple >. kiwi");
+
+        //복수개의 엘리먼트 반환 - 배열타입
+        var a7 = document.querySelectorAll("h3");
+        document.write("태그 h3은 총 " + a7.length + "개 입니다.<br>");
+    </script>
+</body>
+</html>

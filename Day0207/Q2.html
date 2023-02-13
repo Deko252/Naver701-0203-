@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="../image/shop/17.jpg" alt="" width="500" id="img">
+    <br>
+    <button type="button" id="Bbtn">크다</button>
+    <button type="button" id="Sbtn">작다</button>
+
+    <script>
+        var img = document.getElementById("img");
+        
+        document.getElementById("Bbtn").onclick = function(){
+            var size = document.getElementById("img").width;
+            var size2 = img.getAttribute("width");
+            img.setAttribute("width", (Number(size2) + 10));
+        }
+
+        document.getElementById("Sbtn").onclick = function(){
+            var size = document.getElementById("img").width;
+            var size2 = img.getAttribute("width");   
+            img.setAttribute("width", (size - 10));
+        }
+    </script>
+</body>
+</html>

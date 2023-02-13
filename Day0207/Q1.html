@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문제 1번</title>
+</head>
+<body>
+        이름 : <input type="text" style="width: 150px;" id="Qname">
+        <br><br>
+        자바 : <input type="text" style="width: 150px;" id="Qjava">
+        <br><br>
+        HTML : <input type="text" style="width: 150px;" id="Qhtml">
+        <br><br>
+        <button type="button" id="btn">결과 확인</button>
+        
+        <br>
+
+        이름 : <div id="names" style="display: inline;"></div>
+        <br><br>
+        자바 : <div id="java" style="display: inline;"></div>
+        <br><br>
+        html : <div id="html" style="display: inline;"></div>
+        <br><br>
+        총점 : <div id="sum" style="display: inline;"></div>
+        <br><br>
+        평균 : <div id="avg" style="display: inline;"></divh1>
+
+    <script>
+        Qjava.onblur=function(){
+            if(isNaN(this.value) || this.value > 100 || this.value < 0){
+                alert("정확히 입력하세요.");
+                this.value="";
+                this.focus();
+            }
+        }
+        
+        Qhtml.onblur=function(){
+            if(isNaN(this.value) || this.value > 100 || this.value < 0){
+                alert("정확히 입력하세요.");
+                this.value="";
+                this.focus();
+            }
+        }
+
+        document.getElementById("btn").onclick  = function(){
+            document.getElementById("names").innerHTML = Qname.value;
+        
+            document.getElementById("java").innerHTML = Qjava.value;
+        
+            document.getElementById("html").innerHTML = Qhtml.value;
+
+            document.getElementById("sum").innerHTML = Number(Qjava.value) +  Number(Qhtml.value);
+
+            document.getElementById("avg").innerHTML = (Number(Qjava.value) +  Number(Qhtml.value))/2;        
+        }
+        
+
+
+    </script>
+</body>
+</html>

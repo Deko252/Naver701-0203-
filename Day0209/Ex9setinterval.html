@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #animal{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button type="button" id="btnstart"> Start</button>
+        <button type="button" id="btnstop"> Stop</button>
+        <button type="button" id="btnreset"> reset</button>
+    </div>
+    <img src="../image/animal/C5.png" alt="" id="animal">
+
+    <script>
+        var ani = document.getElementById("animal");
+        var x = 0;
+        document.getElementById("btnstart").onclick = function(){
+            interval = setInterval(function(){
+                x += 10;
+                ani.style.left = x + "px";
+            }, 100);
+        }
+        document.getElementById("btnstop").onclick = function(){
+            clearInterval(interval);
+        }
+        document.getElementById("btnreset").onclick = function(){
+             x = 0; //변수도 원위치
+            ani.style.left = "8px"; //인형 원위치
+           clearInterval(interval);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘은 월요입니다</title>
+</head>
+<body>
+    <h3>월요일 싫어</h3>
+    <img src="../image/div_img/beauty1.jpg" alt="" width="300">
+    <h3>자바스크립트 어려워요</h3>
+    <h4>하지만 ..</h4>
+
+    <hr>
+    <h1 class="one">사진 바로 다음 텍스트</h1>
+    <h1 class="two">사진 다음 다음 텍스트</h1>
+    <h1 class="three">사진 바로 전 텍스트</h1>
+
+    <script>
+        //이미지에 마우스를 올렸을때
+        document.querySelector("img").onmouseover = function(){
+            var nextone = this.nextElementSibling.innerText;
+            //.one에 출력
+            document.querySelector(".one").innerText = nextone;
+
+            //var nexttwo = this.nextElementSibling.nextElementSibling.innerText;
+            var nexttwo = this.nextElementSibling.nextElementSibling.innerText;
+
+            document.querySelector(".two").innerText = nexttwo;
+
+            var nextthree = this.previousElementSibling.innerText;
+
+            document.querySelector(".three").innerText = nextthree;
+        }
+
+        document.querySelector("img"),onmouseout = function(){
+            document.querySelector(".one").innerText = "사진 바로 다음 텍스트";
+            document.querySelector(".two").innerText = "사진 다음 다음 텍스트";
+            document.querySelector(".three").innerText = "사진 바로 전 텍스트";
+        }
+    </script>
+</body>
+</html>

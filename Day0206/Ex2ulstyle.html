@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Itim&family=Nanum+Pen+Script&family=Single+Day&family=Solitreo&family=Sunflower:wght@700&display=swap"
+    rel="stylesheet">
+<!-- font-family: 'Itim', cursive;
+    font-family: 'Nanum Pen Script', cursive;
+    font-family: 'Single Day', cursive;
+    font-family: 'Solitreo', cursive;
+    font-family: 'Sunflower', sans-serif; -->
+    <title>ul style</title>
+
+    <style>
+        /*div 태그의 class가 title인 경우에만 해당*/
+        div.title{
+            text-align: center;
+            font-family: 'Nanum Pen Script';
+            /*상위 태그의 2.5배의 글자크기
+            rem: 최상위 태그의 배수로 지정할경우*/
+            font-size: 4em;
+            text-shadow: 3px 3px 3px gray;
+        }
+
+        div.menu{
+            text-align: center;
+        }
+
+        div.menu>ul{
+            list-style: none;
+            /* border: 1px solid red; */
+            
+        }
+
+        div.menu>ul>li{
+            float: left;
+            font-family: 'Single Day';
+            font-size:  24px;
+            width: 150px;
+            height: 70px;
+            line-height: 70px;
+            margin-right: 10px;
+            border: 2px solid tomato;
+            border-radius: 20px;
+            background-color: #afeeee;
+            color: #c71585;
+            
+        }
+
+        div.menu>ul>li:hover{
+            background-color: #2e8657;
+            color: yellow;
+            cursor: pointer;
+            box-shadow: 5px 5px 5px gray;
+        }
+
+        div.menu>ul>li:active{
+            background-color: black;
+            color: white;
+        }
+
+        img.main_photo {
+            /*위치 변경*/
+            position: absolute; /*절대 좌표*/;
+            /* position: relative 상대 좌표;*/
+            left: 200px;
+            top: 200px;
+        }
+        img.main_photo:active{
+            position: relative;
+            left: 120px;
+            top: 132px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="title"> Bitcamp Class Menu</div>
+    <div class="menu">
+        <ul>
+            <li><a href="http://www.juju13.kro.kr">메인</a></li>
+            <li>오시는길</li>
+            <li>클래스과정들</li>
+            <li>접수</li>
+        </ul>
+    </div>
+    <img src="../image/animal/C3.png" alt="팬더" class="main_photo">
+</body>
+</html>

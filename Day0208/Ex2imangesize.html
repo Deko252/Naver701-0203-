@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="margin: 30px 30px;">
+        <h3>width 속성 변경하기 예제</h3>
+        <img src="../image/moviestar/16.jpg" alt="" id="photo" width="200">
+        <br><br>
+        <button type="button" id="btn1">크게크게</button>
+        <button type="button" id="btn2">작게작게</button>
+    </div>
+
+    <script>
+        var p = document.getElementById("photo");
+        document.getElementById("btn2").onclick = function(){
+            var w = p.getAttribute("width");
+
+            p.setAttribute("width", w-10);
+        }
+
+        document.getElementById("btn1").onclick = function(){
+            var w = p.getAttribute("width");
+
+            p.setAttribute("width", Number(w)+10);
+
+            //eval로 해보기
+            p.setAttribute("Widtn", eval(w + "+" + 10));
+            p.setAttribute("Width", eval(`${w} + 10)`));
+        }
+
+    </script>
+
+<div style="margin: 30px 30px;">
+    <h3>width 스타일 변경하기 예제</h3>
+    <img src="../image/moviestar/11.jpg" alt="" id="photo2" style="width: 200px">
+    <br><br>
+    <button type="button" id="btn3">커진다</button>
+    <button type="button" id="btn4">작아진다</button>
+</div>
+    <script>
+        var p2 = document.getElementById("photo2");
+
+        document.getElementById("btn4").onclick = function(){
+            //현재 style의 width 값을 넣어서 확인해보기
+            //var w = p2.style.width;
+            //console.log(w, typeof(w));
+
+            var w = parseInt(p2.style.width,10);//10진수 숫자만 변환(10은 생략)
+            console.log(w, typeof(w));//200 number
+
+            //변경
+            p2.style.width = (w - 10) + "px";
+
+
+        }
+
+        document.getElementById("btn3").onclick = function(){
+            var w = parseInt(p2.style.width,10);//10진수 숫자만 변환(10은 생략)
+            console.log(w, typeof(w));//200 number
+
+            //변경
+            p2.style.width = (w + 10) + "px";
+        }
+
+
+    </script>
+</body>
+</html>
