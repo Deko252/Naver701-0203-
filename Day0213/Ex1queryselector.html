@@ -46,33 +46,45 @@
         //a3의 3번째 요소의 border를 "3px solid gray" 로 변경
         a1[2].style.border="3px solid gray";
 
-        //복수개의 엘리먼트를 반환 - 태그명이 div인 모든 요소값을 반환
-        var a2 = document.getElementsByTagName("div");
-        document.write("div 의 갯수는 총 " + a2.length + "개 입니다<br>");
+        //복수개의 엘리먼트를 반환- 태그명이 div 인 모든 요소값을 반환
+        var a2=document.getElementsByTagName("div");
+        document.write(`div 의 갯수는 총 ${a2.length}개입니다<br>`);//6
 
-        //a2 배열전체에 일괄적으로 배경색 추가하기
-        for(var idx in a2){
-            a2[idx].style.backgroundColor="#ffc";
+        //a2 배열 전체에 일괄적으로 배경색 추가하기
+        // for(var idx in a2){
+        //     a2[idx].style.backgroundColor="#ffffcc";
+        // }
+        for(var i=0;i<a2.length;i++){
+            a2[i].style.backgroundColor="#ffffcc";
         }
 
         //클래스명이 one인 엘리먼트의 첫번째 값 1개만 반환 (배열x)
         var a3 = document.querySelector(".one");
         document.write("class one 은 총 " + a3.length + "개 입니다.<br>");
-        
+        a3.style.fontSize = "70px";
 
         //클래스명이 one인 엘리먼트이 모든값을 배열형태로 반환
         var a4 = document.querySelectorAll(".one");
         document.write("class one 은 총 " + a4.length + "개 입니다.<br>");
+        for(var a of a4)
+        {
+            a.style.color="magenta";
+        }
 
-        //class apple 바로아래의 class명이 banana인 요소값
-        var a5 = document.querySelector("apple >. banana");
+        //class apple 바로 아래의 class명이 banana인 요소값
+        var a5=document.querySelector(".apple>.banana");
+        a5.style.textDecoration="underline";
 
         //class apple 바로 아래의 class명아 kiwi인 요소값
-        var a6 = document.querySelector("apple >. kiwi");
+        var a6 = document.querySelector(".apple >.kiwi");
+        a6.style.color="green";
 
         //복수개의 엘리먼트 반환 - 배열타입
         var a7 = document.querySelectorAll("h3");
         document.write("태그 h3은 총 " + a7.length + "개 입니다.<br>");
+        for(var a of a7){
+            a.style.backgroundColor="lightgray";
+        }
     </script>
 </body>
 </html>
