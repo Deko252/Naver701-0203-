@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .photo {
+            width: 230px;
+            height: 250px;
+            border: 10px inset yellow;
+        }
+
+        .message {
+            margin-left: 50px;
+            text-shadow: 5px 5px 5px gray;
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var arrimg = new Array();
+            arrimg.push("../image/animal/C4.png");
+            arrimg.push("../image/shop/4.jpg");
+            arrimg.push("../image/animal/C7.png");
+            arrimg.push("../image/moviestar/11.jpg");
+            arrimg.push("../image/div_img/beauty3.jpg");
+            arrimg.push("../image/animal/C8.png");
+
+            var arrmessage = ["오늘은 발렌타인데이", "재밌는?", "너무 어려운", "공부해", "오점추"];
+
+            //1초마다 임의로 사진과 메세지가 바뀌도록 해주세요
+            setInterval(() => {
+                var r = parseInt(Math.random() * arrimg.length);
+                document.querySelector(".photo").setAttribute("src", arrimg[r]);
+            }, 1000);
+
+            setInterval(function() {
+                var r = parseInt(Math.random() * arrmessage.length);
+                document.querySelector(".message").innerHTML = arrmessage[r];
+            }, 1000);
+            
+        }
+    </script>
+</head>
+
+<body>
+    <img src="../image/animal/C4.png" alt="" class="photo">
+    <br><br>
+    <h1 class="message">재밌는?</h1>
+
+</body>
+
+</html>
