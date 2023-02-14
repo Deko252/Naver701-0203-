@@ -20,12 +20,13 @@
     <script>
         //이미지에 마우스를 올렸을때
         document.querySelector("img").onmouseover = function(){
+            var next = this.nextElementSibling;
             var nextone = this.nextElementSibling.innerText;
             //.one에 출력
             document.querySelector(".one").innerText = nextone;
 
             //var nexttwo = this.nextElementSibling.nextElementSibling.innerText;
-            var nexttwo = this.nextElementSibling.nextElementSibling.innerText;
+            var nexttwo = next.nextElementSibling.innerText;
 
             document.querySelector(".two").innerText = nexttwo;
 

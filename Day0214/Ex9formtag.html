@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            //1번 이벤트 : 입력후 엔터
+            document.getElementById("txtin").onkeyup = function(e){
+                if(e.keyCode == 13){
+                    var v = e.target.value;
+                    document.querySelector(".one").innerHTML = v;
+                }
+            }
+            //2번 이벤트: 입력하먄 바로바로 출력
+            document.getElementById("txtin2").onkeyup = function(){
+                var v = this.value;
+                document.querySelector(".two").innerHTML = v;
+            }
+            //3번 이벤트 : 색상변경시 출력
+            document.getElementById("txtin3").onchange = function(){
+                //선택한 생성값을 .three에 출력후 배경색에도 적용하기
+                var v = this.value;
+                document.querySelector(".three").innerText = v;
+                document.querySelector(".three").style.backgroundColor = v;
+            }
+            //4번: 굵게,밑줄 체크박스 이벤트
+            document.querySelector("#chkbold").onclick = function(){
+                var v = this.value;
+                if(this.checked){
+                    document.querySelector(".four").style.fontWeight = "bold";
+                }else{
+                    document.querySelector(".four").style.fontWeight = "";
+                }
+            }
+
+            document.querySelector("#chkline").onclick = function(){
+                var v = this.checked;
+                if(v){
+                    document.querySelector(".four").style.textDecoration = "underline";
+                }else{
+                    document.querySelector(".four").style.textDecoration = "";
+                }
+            }
+            //5번 그룹라디오버튼
+            let tcolor = document.querySelectorAll(".tcolor");
+            for (let i = 0; i < tcolor.length; i++) {
+                //클릭이벤트
+                tcolor[i].onclick = function(){
+                    document.querySelector(".five").style.color = this.value;
+                }
+                
+            }
+
+            //5번 배경색 벼튼 이벤트
+            let bcolor = document.querySelectorAll(".bcolor");
+            document.querySelector("#btncolor").onclick = function(){
+                //bcolor를 반복문 돌려서 체크된 값의 value 값을 가지고 와서 스타일 변경
+                for (let i = 0; i < bcolor.length; i++) {
+                    var v = bcolor[i].value;
+                    if(bcolor[i].checked){
+                        document.querySelector(".five").style.backgroundColor = v;
+                    }
+                    
+                    
+                }
+            }
+            //6번 : select
+            document.querySelector("#selfood").onchange = function(){
+                let tag = `<img src = "${this.value}" width = 130>`;
+                document.querySelector(".six").innerHTML = tag;
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <b>자바스크립트로 폼태그값 읽기 연습</b>
+    <table border="1" style="width: 600px; border-collapse: collapse;">
+        <tr bgcolor="gray">
+            <th width="150">종류</th>
+            <th width="400">폼태그</th>
+            <th width="150">결과</th>
+        </tr>
+        <tr>
+            <td>1.input-text</td>
+            <td>
+                <input type="text" id="txtin" value="bitcamp">
+                :입력후 엔터
+            </td>
+            <td class="one"></td>
+        </tr>
+        <tr>
+            <td>2.input-text</td>
+            <td>
+                <input type="text" id="txtin2" value="bitcamp">
+                :입력하면 바로 출력
+            </td>
+            <td class="two"></td>
+        </tr>
+        <tr>
+            <td>3.input-color</td>
+            <td>
+                <input type="color" id="txtin3" value="#cfcfcf">
+                배경색 변경
+            </td>
+            <td class="three"></td>
+        </tr>
+        <tr>
+            <td>4.input-checkbox</td>
+            <td>
+                <label><input type="checkbox" id="chkbold">굵게</label>
+                &nbsp;&nbsp;
+                <label><input type="checkbox" id="chkline">밑줄</label>
+            </td>
+            <td class="four">happy nav</td>
+        </tr>
+        <tr>
+            <td>5.input-radio</td>
+            <!--radio는 같은 그룹으로 묶을경우 반드시 name명이 같아야한다-->
+            <td>
+                <h5>글자색 선택</h5>
+                <label><input type="radio" class="tcolor" value="orange" name="font">오랜지색</label>
+                <label><input type="radio" class="tcolor" value="blue" name="font">파랑색</label>
+                <label><input type="radio" class="tcolor" value="red" name="font">빨강색</label>
+                <label><input type="radio" class="tcolor" value="hotpink" name="font">핫핑크</label>
+                <h5>배경색 선택</h5>
+                <label><input type="radio" class="bcolor" value="skyblue" name="background">하늘색</label>
+                <label><input type="radio" class="bcolor" value="yellow" name="background">노란색</label>
+                <label><input type="radio" class="bcolor" value="green" name="background">초록색</label>
+                <label><input type="radio" class="bcolor" value="rgba(0, 0, 0, 0)" name="background" checked>투명</label>
+                <button type="button" id="btncolor">변경</button>
+            </td>
+
+            <td class="five">색 변경</td>
+        </tr>
+        <tr>
+            <td>6-select</td>
+            <td>
+                이미지 선택:
+                <select name="" id="selfood">
+                    <option hidden disabled selected>선택 하세요</option>
+                    <option value="../image/food/1.jpg">샌드위치</option>
+                    <option value="../image/food/2.jpg">꼬치구이</option>
+                    <option value="../image/food/11.jpg">망고빙수</option>
+                    <option value="../image/food/12.jpg">순두부</option>
+                </select>
+            </td>
+            <td class="six"></td>
+        </tr>
+    </table>
+</body>
+</html>
