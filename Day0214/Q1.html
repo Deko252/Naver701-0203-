@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문제1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+       body, body *{
+            font-size: 25px;
+            font-family: 'Nanum Pen Script';
+        }
+        .box{
+            width: 700px;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+            border: 20px ridge gold;
+            font-size: 30px;
+            color: #b340b5;
+            background-color: #c1fbf7;
+        }
+
+
+    </style>
+    <script>
+        window.onload = function(){
+            document.getElementById("txtinput").onkeyup = function(e){
+                if(e.keyCode == 13){
+                    var v = e.target.value;
+                    document.querySelector("#box").innerHTML = v;
+                }
+            }
+
+            document.querySelector("#chkborder").onclick = function(){
+                if(this.checked){
+                    document.querySelector(".box").style.border = "20px ridge gold";
+                }else{
+                    document.querySelector(".box").style.border = "none";
+                }
+            }
+
+            let size = document.querySelectorAll(".size");
+            for (let i = 0; i < size.length; i++) {
+                //클릭이벤트
+                size[i].onclick = function(){
+                    document.querySelector(".box").style.fontSize = this.value;
+                }
+                
+            }
+            document.querySelector(".color").onchange = function(){
+                var v = this.value;
+                document.querySelector(".box").style.color = v;
+            }
+
+            document.querySelector(".bcolor").onchange = function(){
+                var v = this.value;
+                document.querySelector(".box").style.backgroundColor = v;
+            }
+
+            let style = document.querySelectorAll(".style");
+            for (let i = 0; i < style.length; i++) {
+                //클릭이벤트
+                style[i].onclick = function(){
+                    document.querySelector(".box").style.fontFamily = this.value;
+                }
+                
+            }
+
+        }
+    </script>
+
+</head>
+<body>
+    <div>입력 후 엔터키를 누르세요<input type="text" value="안녕하세요" style="width: 500px;" id="txtinput">
+        &nbsp; <input type="checkbox" class="chkborder" id="chkborder" checked>테두리
+    </div>
+    <div>글자크기: 
+        <label><input type="radio" class="size" value="10px" name="size">10px</label>
+        <label><input type="radio" class="size" value="20px" name="size">20px</label>
+        <label><input type="radio" class="size" value="30px" name="size" checked>30px</label>
+        <label><input type="radio" class="size" value="35px" name="size">35px</label>
+    </div>
+    <div>
+        글자색: <input type="color" value="#b340b5" class="color"> 배경색 <input type="color" value="#c1fbf7" class="bcolor">
+    </div>
+    <div>
+        글꼴 선택: 
+        <label><input type="radio" class="style" value="Jua" name="style">Jua</label>
+        <label><input type="radio" class="style" value="Nanum Pen Script" name="style" checked>Nanum Pen Script</label>
+        <label><input type="radio" class="style" value="Single Day" name="style">Single Day</label>
+        <label><input type="radio" class="style" value="Gamja Flower" name="style">Gamja Flower</label>
+    </div>
+    <br><br>
+    <div id="box" class="box">안녕하세요</div>
+</body>
+</html>
