@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.loginbox table tr {
+            height: 40px;
+        }
+
+        div.loginbox table * {
+            font-size: 20px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            //아이디가 저장된 배열변수
+            let memberid = ["btn701", "no", "sexyhong", "집에가자", "안녕"];
+            let memberpass = ["1234", "0000", "123456", "9999", "3939"];
+            //처음 로딩시 저장된 아이디와 체크값을 얻는다
+            let loginid = localStorage.loginid;
+            let idcheck = localStorage.idcheck;
+            //체크값이 만약 ture 면 아이디에 값을 넣어주고 체크도 설정한다
+            if (idcheck == "false" || idcheck == null) {
+                //체크속성 넣기
+                //document.getElementById("chksave").removeAttribute("checked");
+                document.getElementById("chksave").checked = false;
+                //아이디도 지우기
+                document.getElementById("txtid").value = "";
+            } else {
+                //체크속성 넣기
+                //document.getElementById("chksave").setAttribute("checked", true);
+                document.getElementById("chksave").checked = true;
+                //아이디도 넣기
+                document.getElementById("txtid").value = loginid;
+            }
+            //체크값이 만약 false면 아이디에 값을 지우고 체크도 해제한다
+            //로그인 버튼
+            document.getElementById("btnlogin").onclick = function () {
+
+                //아이디랑 비번을 얻는다
+                let id = document.getElementById("txtid").value;
+                let pass = document.getElementById("txtpass").value;
+                //아이디 저장 체크값을 얻는다
+                let idcheck = document.getElementById("chksave").checked;
+                var c = 0;
+                for (var i = 0; i < memberid.length; i++) {
+                    if (memberid[i] == id) {
+                        var c = 1;
+                        if (memberpass[i] == pass) {
+                            var c = 2;
+                            //로컬 스토리지에 체크값과 아이디를 저장한다
+                            localStorage.idcheck = idcheck;
+                            localStorage.loginid = id;
+                            //페이지 이동
+                            location.href = "Ex1canvas.html";
+                        }else if(pass != ""){
+                            alert("비밀번호가 틀렸어요.");
+                        }
+                    }                 
+                }if(c == 0){
+                    alert("아이디가 틀렸어요.");
+                }else if(id == ""){
+                    alert("아이디를 입력하세요.");
+                }else if(pass == ""){
+                    alert("비밀번호를 입력하세요.");
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="loginbox">
+        <table border="1" style="border-collapse : collapse">
+            <caption>회원 로그인</caption>
+            <tr>
+                <th colspan="2">
+                    <label>
+                        <input type="checkbox" id="chksave">아이디 저장
+                    </label>
+                </th>
+            </tr>
+            <tr>
+                <th bgcolor="lightgray" width="100">아이디</th>
+                <td width="200">
+                    <input type="text" id="txtid" placeholder="아이디" autofocus>
+                    </th>
+            </tr>
+            <tr>
+                <th bgcolor="lightgray" width="100">비밀번호</th>
+                <td width="200">
+                    <input type="password" id="txtpass" placeholder="비밀번호"></label>
+                </td>
+                </th>
+            </tr>
+            <tr>
+                <th colspan="2" align="center">
+                    <button fotyper="button" id="btnlogin">로그인</button>
+                </th>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
