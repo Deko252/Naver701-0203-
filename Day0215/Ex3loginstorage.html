@@ -57,18 +57,100 @@
                             localStorage.loginid = id;
                             //페이지 이동
                             location.href = "Ex1canvas.html";
-                        }else if(pass != ""){
+                        } else if (pass != "") {
                             alert("비밀번호가 틀렸어요.");
+                            document.getElementById("txtpass").value = "";
+                            document.getElementById("txtpass").focus();
                         }
-                    }                 
-                }if(c == 0){
-                    alert("아이디가 틀렸어요.");
-                }else if(id == ""){
+                    }
+                } if (id == "") {
                     alert("아이디를 입력하세요.");
-                }else if(pass == ""){
+                    document.getElementById("txtid").focus();
+                } else if (pass == "") {
                     alert("비밀번호를 입력하세요.");
+                    document.getElementById("txtpass").focus();
+                } else if (c == 0) {
+                    alert("아이디가 틀렸어요.");
+                    document.getElementById("txtpass").value = "";
+                    document.getElementById("txtid").focus();
+                }
+            }//아이디 칸에서 엔터키를 눌렀을때
+            document.getElementById("txtid").onkeyup = function (e) {
+                if (e.keyCode == 13) {
+                    //아이디랑 비번을 얻는다
+                    let id = document.getElementById("txtid").value;
+                    let pass = document.getElementById("txtpass").value;
+                    //아이디 저장 체크값을 얻는다
+                    let idcheck = document.getElementById("chksave").checked;
+                    var c = 0;
+                    for (var i = 0; i < memberid.length; i++) {
+                        if (memberid[i] == id) {
+                            var c = 1;
+                            if (memberpass[i] == pass) {
+                                var c = 2;
+                                //로컬 스토리지에 체크값과 아이디를 저장한다
+                                localStorage.idcheck = idcheck;
+                                localStorage.loginid = id;
+                                //페이지 이동
+                                location.href = "Ex1canvas.html";
+                            } else if (pass != "") {
+                                alert("비밀번호가 틀렸어요.");
+                                document.getElementById("txtpass").value = "";
+                                document.getElementById("txtpass").focus();
+                            }
+                        }
+                    } if (id == "") {
+                        alert("아이디를 입력하세요.");
+                        document.getElementById("txtid").focus();
+                    } else if (pass == "") {
+                        alert("비밀번호를 입력하세요.");
+                        document.getElementById("txtpass").focus();
+                    } else if (c == 0) {
+                        alert("아이디가 틀렸어요.");
+                        document.getElementById("txtpass").value = "";
+                        document.getElementById("txtid").focus();
+                    }
                 }
             }
+            //비밀번호 칸에서 엔터키를 눌렀을때
+            document.getElementById("txtpass").onkeyup = function (e) {
+                if (e.keyCode == 13) {
+                    //아이디랑 비번을 얻는다
+                    let id = document.getElementById("txtid").value;
+                    let pass = document.getElementById("txtpass").value;
+                    //아이디 저장 체크값을 얻는다
+                    let idcheck = document.getElementById("chksave").checked;
+                    var c = 0;
+                    for (var i = 0; i < memberid.length; i++) {
+                        if (memberid[i] == id) {
+                            var c = 1;
+                            if (memberpass[i] == pass) {
+                                var c = 2;
+                                //로컬 스토리지에 체크값과 아이디를 저장한다
+                                localStorage.idcheck = idcheck;
+                                localStorage.loginid = id;
+                                //페이지 이동
+                                location.href = "Ex1canvas.html";
+                            } else if (pass != "") {
+                                alert("비밀번호가 틀렸어요.");
+                                document.getElementById("txtpass").value = "";
+                                document.getElementById("txtpass").focus();
+                            }
+                        }
+                    } if (id == "") {
+                        alert("아이디를 입력하세요.");
+                        document.getElementById("txtid").focus();
+                    } else if (pass == "") {
+                        alert("비밀번호를 입력하세요.");
+                        document.getElementById("txtpass").focus();
+                    } else if (c == 0) {
+                        alert("아이디가 틀렸어요.");
+                        document.getElementById("txtpass").value = "";
+                        document.getElementById("txtid").focus();
+                    }
+                }
+            }
+
         }
     </script>
 </head>
