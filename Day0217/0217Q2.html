@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap"
+        rel="stylesheet">
+    <style>
+        body,
+        body * {
+            font-family: 'Single Day';
+        }
+
+        table {
+            width: 500px;
+            height: 500px;
+        }
+
+        tr {
+            border: 1px solid black;
+            margin: 0;
+            padding: 0;
+        }
+
+        td {
+            border: 1px solid black;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .fcolor {
+            width: 500px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <!--table로 5행5열의 행과 열을 만든후 1~100 사이의 중복되지않은 숫자를 안에 넣어주세요
+        조건
+            글자의 크기는 30px 각 칸에 정가운데 나오게 해주세요
+            글자색은 랜덤하게 rgb 값을 구해서 적용시키세요
+
+            table 위에 h1태그를 만든후
+            td에 마우스를 올리면 해당 글자색을 css로 얻어서 h1에 그값을 출력시키고
+            h1의 배경색에도 적용시켜주세요
+    -->
+    <h1 class="fcolor">글자색은 여기에</h1>
+    <table>
+        <script>
+            let rnb = new Array(5);
+            for (let i = 0; i < rnb.length; i++) {
+                document.write("<tr>");
+                for (let j = 0; j < i; j++) {
+                        rnb[i] = parseInt(Math.random() * 100+ 1);
+                        let rgb = parseInt(Math.random() * 255 + 1) + ", " + parseInt(Math.random() * 255 + 1) + ", " + parseInt(Math.random() * 255 + 1);
+                        if (rnb[i] == rnb[j]) {
+                            i--;
+                            break;
+                        }else{
+                            //let rnd = parseInt(Math.random() * 100 + 1);
+                        document.write("<td style='background-color: rgb(" + rgb + ")'>");
+                        document.write(rnb[i]);
+                    }
+                    document.write("</td>");
+                }
+                document.write("</tr>");
+            }           
+            // let rnb = new Array(5);
+            // for (let i = 0; i < rnb.length; i++) {
+            //     document.write("<tr>");
+            //         for (let j = 0; j < rnb.length; j++) {
+            //             rnb[j] = parseInt(Math.random() * 100+ 1);
+            //             //let rnd = parseInt(Math.random() * 100 + 1);
+            //             let rgb = parseInt(Math.random() * 255 + 1) + ", " + parseInt(Math.random() * 255 + 1) + ", " + parseInt(Math.random() * 255 + 1);
+            //             document.write("<td style='background-color: rgb(" + rgb + ")'>");
+            //             document.write(rnb[j]);
+            //             document.write("</td>");
+            //         }           
+            //         document.write("</tr>");
+            // }
+            $("tr td").mouseover(function () {
+                let h1color = $(this).css("background-color");
+                $(".fcolor").css("background-color", $(this).css("background-color"));
+                $(".fcolor").text(h1color);
+            });
+        </script>
+    </table>
+</body>
+
+</html>

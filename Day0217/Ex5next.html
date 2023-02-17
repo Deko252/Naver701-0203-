@@ -10,11 +10,82 @@
         href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap"
         rel="stylesheet">
     <style>
-        body,
-        body * {
+        body, body * {
             font-family: 'Single Day';
         }
+        div.one figure{
+            float: left;
+            cursor: pointer;
+        }
+        div.one figure figcaption{
+            text-align: center;
+        }
+        div.result1{
+            position: absolute; /*현재 위치 기준*/
+            left: 500px;
+            top: 5px;
+            width: 150px;
+        }
+        
+        .clear{
+            clear: both;/*float 속성해제*/
+        }
+        div.two div.box{
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            border: 1px solid gray;
+            margin: 5px;
+            float: left;
+        }
+        
+        div.result2{
+            border: 5px inset;
+            text-align: center;
+            margin: 50px 100px;
+        }
     </style>
+    <script>
+        $(function(){
+            //처음 있던 이미지와 제목 얻어두기
+            let fphoto = $("div.result1 img").attr("src");
+            let ftext = $("div.result1 h3").text();
+
+            $("div.one figure img").hover(function(){
+                //현재 마우스가있는 위치의 이미지명
+                let photo = $(this).attr("src");
+                //result1의 img에 적용
+                $("div.result1 img").attr("src",photo);
+                //사진 아래에 제목을 얻는다
+                let title = $(this).next().find("b").text();
+                //let tilte = $(this).parent().find("figcaption").find("b").text;
+                //sibling 현재 태그중 (형제)figcaption 
+                //children 하위 태그중 찾을때
+                let tilte = $(this).siblings("figcaption").children("b").text();
+                //result1의 h3에 적용한다
+                $("div.result1 h3").text(title);
+            }, function(){
+                //다시 원래 이미지
+                $("div.result1 img").attr("src",fphoto);
+                $("div.result1 h3").text(ftext);
+            });
+
+            //div.two div.box에 mouseover 이벤트
+            //배경색을 얻어서 div.result2의 배경색으로 넣고
+            //제목을 얻어서 메세지 자리에 나오게
+            //별표도 얻어서 별표 자리에 나오게 해주세요
+            $("div.two div.box").hover(function(){
+                let bcolor = $(this).css("background-color");
+                let btitle = $(this).next().text();
+                let bstar = $(this).next().next().find("span").text();
+                $("div.result2").css("background-color", bcolor);
+                $("div.result2 h1").text(btitle);
+                $("div.result2 h3").text(bstar);
+            });
+
+
+        });
+    </script>
     <title>Document</title>
 </head>
 <body>
@@ -25,5 +96,67 @@
         parent: 부모태그
         siblings: 형제요소
     -->
+    <div class="one">
+        <figure>
+            <img src="../image/jquery_image/01.png" alt="">
+            <figcaption>
+                <b>미니언1</b>
+            </figcaption>
+        </figure>
+        <figure>
+            <img src="../image/jquery_image/02.png" alt="">
+            <figcaption>
+                <b>미니언2</b>
+            </figcaption>
+        </figure>
+        <figure>
+            <img src="../image/jquery_image/03.png" alt="">
+            <figcaption>
+                <b>미니언3</b>
+            </figcaption>
+        </figure>
+    </div>
+        <div class="result1">
+            <img src="../image/jquery_image/04.png" alt="">
+            <br>
+            <h3>바나나</h3>
+        </div>
+        <hr class="clear">
+        <div class="two">
+            <div class="box" style="background-color: cyan;"></div>
+            <h3>즐거운 금요일</h3>
+            <div class="message">
+                <span>★☆☆☆</span>
+            </div>
+        </div>
+        <hr>
+        <div class="two">
+            <div class="box" style="background-color: pink;"></div>
+            <h3>금요일 즐거운</h3>
+            <div class="message">
+                <span>★★☆☆</span>
+            </div>
+        </div>
+        <hr>
+        <div class="two">
+            <div class="box" style="background-color: yellow;"></div>
+            <h3>재밌는 금요일</h3>
+            <div class="message">
+                <span>★★★☆</span>
+            </div>
+        </div>
+        <hr>
+        <div class="two">
+            <div class="box" style="background-color: greenyellow;"></div>
+            <h3>금요일 재밌는</h3>
+            <div class="message">
+                <span>★★★★</span>
+            </div>
+        </div>
+
+        <div class="result2">
+            <h1>메세지</h1>
+            <h3>별표</h3>
+        </div>
 </body>
 </html>
