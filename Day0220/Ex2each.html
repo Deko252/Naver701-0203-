@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap"
+        rel="stylesheet">
+    <style>
+        body,
+        body * {
+            font-family: 'Single Day';
+        }
+
+        div{
+            width: 400px;
+            height: 130px;
+            line-height: 130px;
+            text-align: center;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .hello_0{
+            border: 10px inset palevioletred;
+            font-family: 'Jua';
+            background-color: pink;
+            color: hotpink;
+        }
+        .hello_1{
+            border: 10px inset yellow;
+            font-family: 'Jua';
+            background-color: greenyellow;
+            color: green;
+        }
+        .hello_2{
+            border: 10px inset skyblue;
+            font-family: 'Jua';
+            background-color: blue;
+            color: navy;
+        }
+        .hello_3{
+            border: 10px inset orange;
+            font-family: 'Jua';
+            background-color: tomato;
+            color: red;
+        }
+        .hello_4{
+            border: 10px inset gray;
+            font-family: 'Jua';
+            background-color: black;
+            color: white;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="button" class="btn btn-outline-info"
+        style="margin-left: 100px;">스타일 적용</button>
+
+    <button type="button" class="btn btn-outline-danger"
+        style="margin-left: 100px;">스타일 제거</button>
+    <br><br>
+    <div>이제</div>
+    <div>시작</div>
+    <div>하지</div>
+    <div>아니</div>
+    <div>그만</div>
+    
+    <script>
+        $("button:eq(0)").click(function(){
+            $("div").each(function(idx){
+                $(this).addClass("hello_" + idx);
+            });
+        });
+        $("button:eq(1)").click(function(){
+            // $("div").each(function(idx){
+            //     $(this).removeClass("hello_" + idx);
+            // });
+            $("div").removeClass();//모든 클래스제거
+        });
+    </script>
+</body>
+
+</html>
