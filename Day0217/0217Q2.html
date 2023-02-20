@@ -25,12 +25,14 @@
             border: 1px solid black;
             margin: 0;
             padding: 0;
+            
         }
 
         td {
             border: 1px solid black;
             text-align: center;
             font-size: 30px;
+            
         }
 
         .fcolor {
@@ -53,37 +55,28 @@
     <h1 class="fcolor">글자색은 여기에</h1>
     <table>
         <script>
-            let rnb = new Array(5);
+            let rnb = new Array(25);
             for (let i = 0; i < rnb.length; i++) {
-                document.write("<tr>");
+                rnb[i] = parseInt(Math.random() * 100 + 1);
                 for (let j = 0; j < i; j++) {
-                        rnb[i] = parseInt(Math.random() * 100+ 1);
-                        let rgb = parseInt(Math.random() * 255 + 1) + ", " + parseInt(Math.random() * 255 + 1) + ", " + parseInt(Math.random() * 255 + 1);
-                        if (rnb[i] == rnb[j]) {
-                            i--;
-                            break;
-                        }else{
-                            //let rnd = parseInt(Math.random() * 100 + 1);
-                        document.write("<td style='background-color: rgb(" + rgb + ")'>");
-                        document.write(rnb[i]);
+                    if (rnb[i] == rnb[j]) {
+                        i--;
+                        break;
                     }
+                }
+            }
+            console.log(rnb);
+            let idx = 0;
+            for (let i = 0; i < 5; i++) {
+                document.write("<tr>");
+                for (let j = 0; j < 5; j++) {
+                    let rgb = parseInt(Math.random() * 255 + 1) + ", " + parseInt(Math.random() * 255 + 1) + ", " + parseInt(Math.random() * 255 + 1);
+                    document.write("<td style='background-color: rgb(" + rgb + ")'>");
+                    document.write(rnb[idx++]);
                     document.write("</td>");
                 }
                 document.write("</tr>");
-            }           
-            // let rnb = new Array(5);
-            // for (let i = 0; i < rnb.length; i++) {
-            //     document.write("<tr>");
-            //         for (let j = 0; j < rnb.length; j++) {
-            //             rnb[j] = parseInt(Math.random() * 100+ 1);
-            //             //let rnd = parseInt(Math.random() * 100 + 1);
-            //             let rgb = parseInt(Math.random() * 255 + 1) + ", " + parseInt(Math.random() * 255 + 1) + ", " + parseInt(Math.random() * 255 + 1);
-            //             document.write("<td style='background-color: rgb(" + rgb + ")'>");
-            //             document.write(rnb[j]);
-            //             document.write("</td>");
-            //         }           
-            //         document.write("</tr>");
-            // }
+            }
             $("tr td").mouseover(function () {
                 let h1color = $(this).css("background-color");
                 $(".fcolor").css("background-color", $(this).css("background-color"));
