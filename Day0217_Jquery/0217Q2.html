@@ -25,14 +25,14 @@
             border: 1px solid black;
             margin: 0;
             padding: 0;
-            
+
         }
 
         td {
             border: 1px solid black;
             text-align: center;
             font-size: 30px;
-            
+
         }
 
         .fcolor {
@@ -70,9 +70,11 @@
             for (let i = 0; i < 5; i++) {
                 document.write("<tr>");
                 for (let j = 0; j < 5; j++) {
-                    let rgb = parseInt(Math.random() * 255 + 1) + ", " + parseInt(Math.random() * 255 + 1) + ", " + parseInt(Math.random() * 255 + 1);
+                    let r = parseInt(Math.random() * 256);
+                    let rgb = r + ", " + parseInt(Math.random() * 256) + ", " + parseInt(Math.random() * 256);
                     document.write("<td style='background-color: rgb(" + rgb + ")'>");
                     document.write(rnb[idx++]);
+
                     document.write("</td>");
                 }
                 document.write("</tr>");
