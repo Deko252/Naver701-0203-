@@ -34,7 +34,7 @@
 </head>
 
 <body>
-    <h4 class="alert alert-info text-primary">Day 0221 문제1</h4>
+    <h4 class="alert alert-secondary text-dark">Day 0221 문제1</h4>
     <h5 class="text-danger">글꼴 모양</h6>
     <label>
         <input type="checkbox" id="bold" class="form-check-input" value="bold" name="font">굵게 &nbsp;
@@ -77,7 +77,7 @@
         </label>
         <hr width="400px">
 
-    <h5 class="text-success">메세지</h6>
+    <h5 class="text-primary">메세지</h6>
         <div class="input-group mb-3" style="width: 400px;">  
             <span class="input-group-text">메세지</span>
             <input type="text" class="form-control" id="message" placeholder="메세지 입력">
@@ -117,12 +117,19 @@
             let size = $("input[name='size']:checked").val();
             $("#result").css("font-size", size);
         });
+        //엔터키를 누르면 입력
         document.getElementById("message").onkeypress = function(e){
             let message = $("#message").val();
             if(e.keyCode == 13){
                 $("#result").text(message);
             }
         }
+
+        //바로바로 입력
+        // $("#message").keyup(function(e){
+        //     let message = $("#message").val();
+        //     $("#result").text(message)
+        // })
 
         
     </script>
