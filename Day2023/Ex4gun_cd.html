@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <style>
+        body,
+        body * {
+            font-family: 'Single Day';
+        }
+        .gun{
+            width: 300px;
+            height: 250px;
+            background-image: url("../image/jquery_image/gun.png");
+            background-position: left top; /*기본값(top) 상위 250px 만 보임*/
+            /*background-position: left bottom; /* 하위 250px 만 보임*/
+        }
+        .gun:active{
+            background-position: left bottom;
+            cursor: pointer;
+        }
+        .cd1, .cd2, .cd3{
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-image: url("../image/jquery_image/cd-sprite.png");
+            background-size: 200px 600px;
+        }
+        .cd2{
+            background-position: center;
+        }
+        .cd3{
+            background-position: bottom;
+        }
+        .wall{
+            z-index: 100;
+            background-image: url("../image/jquery_image/bg2.png");
+            width: 100px;
+            height: 200px;
+            margin-left: 100px;
+            background-size: 100px 100px;
+            position: relative;
+        }
+        .doll{
+            z-index: 10;
+            position: relative;
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-size: 200px 600px;
+            background-position: left top;
+            background-image: url("../image/jquery_image/cd-sprite.png");
+            left: 100px;
+            top:-195px;
+            cursor: pointer;
+        }
+        
+    </style>
+    <script>
+        $(function(){
+            $(".gun").click(function(){
+                //소리파일 생성
+                let j = new Audio("../image/jang.wav");
+                let f = new Audio("../image/fire.wav");
+                //실행
+                j.play();
+                f.play();
+            });
+            let cd = 1;
+            $(".doll").click(function(){
+                if(cd == 1){
+                    $(this).animate({"width": "0px"},500, function(){
+                        $(this).css("background-position" , "center");
+                        $(this).animate({"width": "200px"},500);
+                        cd++; 
+                    });
+                }else if(cd == 2){
+                    $(this).animate({"width": "0px"},500, function(){
+                        $(this).css("background-position" , "bottom");
+                        $(this).animate({"width": "200px"},500);
+                        cd++; 
+                    });
+                }else{
+                    $(this).animate({"width": "0px"},500, function(){
+                        $(this).css("background-position" , "top");
+                        $(this).animate({"width": "200px"},500);
+                        cd = 1; 
+                    });
+                }
+            });
+        });
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>총을 클릭하면 총소리</h2>
+    <div class="gun"></div>
+    <hr>
+    <h2>CD 3장 분리하기</h2>
+    <div class="cd1"></div>
+    <div class="cd2"></div>
+    <div class="cd3"></div>
+    <hr style="clear: both;">
+
+    <div class="wall"></div>
+    <div class="doll"></div>
+</body>
+
+</html>
