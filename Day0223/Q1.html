@@ -108,11 +108,11 @@
         });
         $(document).on("click", ".hear li", function(){
             hselect = $(this).text();
-            $(".seatEx").html(hselect + "<br>" + mselect);
+            $(".seatEx").html("극장: " + hselect + "<br> 영화 제목: " + mselect);
         });
         $(document).on("click", ".movie li", function(){
             mselect = $(this).text();
-            $(".seatEx").html(hselect + "<br>" + mselect);
+            $(".seatEx").html("극장: " + hselect + "<br> 영화 제목: " + mselect);
         });
         
 
