@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <title>Document</title>
+    <style>
+        body,
+        body * {
+            font-size: 1.5rem;
+            font-family: 'Gamja Flower';
+        }
+
+        .top {
+            border: 3px solid plum;
+            height: 100px;
+            width: 800px;
+            text-align: left;
+            line-height: 90px;
+            background-color: pink;
+            color: #fff;
+            font-weight: bold;
+            font-size: 50px;
+        }
+
+        .year,
+        .month {
+            width: 375px;
+        }
+
+        #calendar {
+            width: 800px;
+            border: 3px inset gray;
+        }
+
+        #calendar tr.week td {
+            border: 2px solid gray;
+            background-color: skyblue;
+            color: #fff;
+        }
+
+        #calendars td {
+            border: 2px solid gray;
+        }
+        </style>
+</head>
+
+<body>
+    <h1 class="top">JavaScript 달력</h1>
+    <input type="number" class="year" max="2100" min="1900" value="">년
+    <input type="number" class="month" max="12" min="1" value="">월
+    <br><br>
+    <div id="calendar_name"></div>
+    <script>
+        let date = new Date();
+        let curyear = date.getFullYear();
+        let curmonth = date.getMonth() + 1;
+        $("#calendar_name").html("<div>" + curyear + "년 " + curmonth + "월<div>");
+        year = $(".year").val(curyear);
+        month = $(".month").val(curmonth);
+        $("input.month, input.year").change(function () {
+                year = $(".year").val();
+                month = $(".month").val();
+                if (year > 2100 || year < 1900 || month > 12 || month < 1) {
+                    $("#result").html("<div>1900년 ~ 2100년 까지밖에 없습니다.</div>" + "<div>1월 ~ 12월 까지밖에 없습니다.</div>");
+                    $("#calendar_name").html("<div>" + year + "년 " + month + "월<div>");
+                }else{
+                    $("#calendar_name").html("<div>" + year + "년 " + month + "월<div>");
+                
+            let dates = new Date($(".year").val(), $(".month").val() - 1, 1);
+            let weeks = dates.getDay();
+            let endday;
+
+            switch (Number(month)) {
+                case 2:
+                    //윤년이면 29일 평년이면 28일
+                    if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+                        endday = 29;
+                    } else {
+                        endday = 28;
+                    }
+                    break;
+                case 4:
+                    endday = 30;
+                    break;
+                case 6:
+                    endday = 30;
+                    break;
+                case 9:
+                    endday = 30;
+                    break;
+                case 11:
+                    endday = 30;
+                    break;
+                default:
+                    endday = 31;
+                    break;
+            }
+            let s = "";
+            s += "<table id='calendar'>";
+            s += "<tr class='week'>";
+            s += "<td>일</td>";
+            s += "<td>월</td>";
+            s += "<td>화</td>";
+            s += "<td>수</td>";
+            s += "<td>목</td>";
+            s += "<td>금</td>";
+            s += "<td>토</td>";
+            s += "</tr>";
+            s += "<tr id='calendars'>";
+            for (let i = 1; i <= weeks; i++) {
+                s += "<td></td>";
+            }
+            for (let i = 1; i <= endday; i++) {
+                weeks++;
+                s += "<td>" + i + "</td>";
+                if (weeks % 7 == 0) {
+                    s += "</tr>";
+                    s += "<tr id='calendars'>";
+                }
+            }
+            while( weeks%7 != 0){
+                s += "<td></td>";
+                weeks++;
+            }
+            
+            s += "</tr>"
+            s += "</table>";
+
+            $("#result").html(s);
+        }
+        });
+        $(function () {
+            let dates = new Date($(".year").val(), $(".month").val() - 1, 1);
+            let weeks = dates.getDay();
+            let endday;
+
+            switch (Number(month)) {
+                case 2:
+                    //윤년이면 29일 평년이면 28일
+                    if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+                        endday = 29;
+                    } else {
+                        endday = 28;
+                    }
+                    break;
+                case 4:
+                    endday = 30;
+                    break;
+                case 6:
+                    endday = 30;
+                    break;
+                case 9:
+                    endday = 30;
+                    break;
+                case 11:
+                    endday = 30;
+                    break;
+                default:
+                    endday = 31;
+                    break;
+            }
+            let s = "";
+            s += "<table id='calendar'>";
+            s += "<tr class='week'>";
+            s += "<td>일</td>";
+            s += "<td>월</td>";
+            s += "<td>화</td>";
+            s += "<td>수</td>";
+            s += "<td>목</td>";
+            s += "<td>금</td>";
+            s += "<td>토</td>";
+            s += "</tr>";
+            s += "<tr id='calendars'>";
+            for (let i = 1; i <= weeks; i++) {
+                s += "<td></td>";
+            }
+            for (let i = 1; i <= endday; i++) {
+                weeks++;
+                s += "<td>" + i + "</td>";
+                if (weeks % 7 == 0) {
+                    s += "</tr>";
+                    s += "<tr id='calendars'>";
+                }
+            }
+            while( weeks%7 != 0){
+                s += "<td></td>";
+                weeks++;
+            }
+            s += "</tr>"
+            s += "</table>"; 
+                $("#result").html(s);
+        });
+    </script>
+    <div id="result"></div>
+</body>
+
+</html>
