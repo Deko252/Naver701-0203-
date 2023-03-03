@@ -50,6 +50,10 @@
         #calendars td {
             border: 2px solid gray;
         }
+        td.clear{
+            color: rgba(0, 0, 0, 0.3);
+        }
+        
         </style>
 </head>
 
@@ -127,8 +131,10 @@
                     s += "<tr id='calendars'>";
                 }
             }
+            let a = 1;
             while( weeks%7 != 0){
-                s += "<td></td>";
+                s += "<td class='clear'>"+a+"</td>";
+                a++;
                 weeks++;
             }
             
@@ -191,8 +197,10 @@
                     s += "<tr id='calendars'>";
                 }
             }
+            let a = 1;
             while( weeks%7 != 0){
-                s += "<td></td>";
+                s += "<td class='clear'>"+a+"</td>";
+                a++;
                 weeks++;
             }
             s += "</tr>"
